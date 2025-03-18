@@ -21,7 +21,6 @@ const PropertyList = () => {
     };
 
     useEffect(() => {
-      //  apiService.get('/api/properties/');
         getProperties();
     }, []);
 
