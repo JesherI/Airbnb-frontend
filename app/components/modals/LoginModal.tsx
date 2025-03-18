@@ -6,7 +6,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import useLoginModal from "@/app/hooks/useLoginModal";
 import CustomButton from "../forms/CustomButton";
-import { handleLogin } from "../lib/actions";
+import { handleLogin } from "../../lib/actions";
 import apiService from "@/app/services/apiService";
 
 const LoginModal = () => {

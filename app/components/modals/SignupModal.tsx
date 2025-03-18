@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import useSignupModal from "@/app/hooks/useSignupModal";
 import CustomButton from "../forms/CustomButton";
 import apiService from "@/app/services/apiService";
-import { handleLogin } from "../lib/actions";
+import { handleLogin } from "../../lib/actions";
 
 const SignupModal = () => {
     const router = useRouter();
