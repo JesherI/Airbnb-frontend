@@ -16,15 +16,17 @@ const Navbar = async () => {
             <div className="max-w-[1500px] max-auto px-6">
                 <div className="flex justify-between items-center">
                     <Link href="/">
-                        <Image src="/logo.png" alt="Djangobnb logo" width={100} height={30}/>
+                        <Image src="/logo.png" alt="Djangobnb logo" width={100} height={30} />
                     </Link>
                     <div className="flex space-x-6 ">
                         <SearchFilters />
                     </div>
                     <div className="flex items-center space-x-6 ">
-                        <AddPropertyButton />
-                        <UserNav 
-                            userId = {userId}
+                        <AddPropertyButton
+                            userId={userId}
+                        />
+                        <UserNav
+                            userId={userId}
                         />
                     </div>
                 </div>

@@ -24,7 +24,7 @@ const SignupModal = () => {
             password1: password1,
             password2: password2
         }
-        const response = await apiService.post('/api/auth/register/', JSON.stringify(formData));
+        const response = await apiService.postWithoutToken('/api/auth/register/', JSON.stringify(formData));
 
         if (response.access) {
             handleLogin(response.user.pk, response.access, response.refresh);   
@@ -43,7 +43,7 @@ const SignupModal = () => {
         <>
             <form
                 action={submitSingup}
-                className="space-y-4"
+                className="space-y-4 text-black"
             >
                 <input onChange={(e) => setEmail(e.target.value)} placeholder="Your email address" type="email" className="w-full h-[54px] px-4 border-gray-300 rounded-xl " />
                 <input onChange={(e) => setPassword1(e.target.value)} placeholder="Your password" type="password" className="w-full h-[54px] px-4 border-gray-300 rounded-xl " />

@@ -23,7 +23,7 @@ const LoginModal = () => {
             password: password
         }
 
-        const response = await apiService.post('/api/auth/login/', JSON.stringify(formData))
+        const response = await apiService.postWithoutToken('/api/auth/login/', JSON.stringify(formData))
 
         if (response.access) {
             handleLogin(response.user.pk, response.access, response.refresh);   
@@ -36,7 +36,7 @@ const LoginModal = () => {
 
     const content = (
         <>
-            <form action={submitLogin} className="space-y-4">
+            <form action={submitLogin} className="space-y-4 text-black">
                 <input onChange={(e) => setEmail(e.target.value)} placeholder="Your email address" type="email" className="w-full h-[54px] px-4 border-gray-300 rounded-xl " />
                 <input onChange={(e) => setPassword(e.target.value)} placeholder="Your password" type="password" className="w-full h-[54px] px-4 border-gray-300 rounded-xl " />
                 {errors.map((error, index) => {
