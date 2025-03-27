@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from "react";
-
+import { useRouter } from "next/navigation";
 import MenuLink from "./MenuLink";
 import LogoutButton from "../LogoutButton"
 
@@ -15,11 +15,12 @@ interface UserNavProps {
 const UserNav: React.FC<UserNavProps> = ({
     userId
 }) => {
+    const router = useRouter();
     const loginModal = useLoginModal();
     const signupModal = useSignupModal();
     const [isOpen, setIsOpen] = useState(false)
 
-    console.log('asdf', userId) 
+    console.log('asdf', userId)
 
     return (
         <div className="p-2 relative inline-block border rounded-full">
@@ -35,7 +36,25 @@ const UserNav: React.FC<UserNavProps> = ({
             {isOpen && (
                 <div className="w-[220px] absolute top-[60px] bg-black right-0 hober:bg-gray-900 border rounded-xl shadow-md flex flex-col cursor-pointer ">
                     {userId ? (
-                        <LogoutButton />
+                        <>
+                            <MenuLink
+                                label="My Properties"
+                                onClick={() => {
+                                    setIsOpen(false);
+                                    router.push(`/myproperties`)
+                                }}
+                            />
+
+                            <MenuLink
+                                label="My Reservations"
+                                onClick={() => {
+                                    setIsOpen(false);
+                                    router.push(`/myreservations`)
+                                }}
+                            />
+
+                            <LogoutButton />
+                        </>
                     ) : (
                         <>
                             <MenuLink label='Log in' onClick={() => {
